@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml for Priyansh Masiyava Portfolio
+  ============================================
+  PRODUCTION SETUP REQUIRED:
+  Replace every occurrence of https://YOUR-PRODUCTION-DOMAIN below with the
+  real deployed URL (e.g. https://priyanshmasiyava.vercel.app) before
+  submitting this sitemap to Google Search Console or any other search tool.
+
+  Do NOT submit this file to Search Console while it still contains the
+  placeholder domain — search engines will crawl the wrong URLs.
+
+  Project slugs are derived from src/data/projects.ts.
+  Static pages: /, /projects, /resume
+  Project detail pages: /projects/<slug> for each project in the data file.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ── Static pages ─────────────────────────────────────────────────────── -->
+
+  <url>
+    <loc>https://YOUR-PRODUCTION-DOMAIN/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://YOUR-PRODUCTION-DOMAIN/projects</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://YOUR-PRODUCTION-DOMAIN/resume</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ── Project detail pages ─────────────────────────────────────────────── -->
+  <!-- Slugs match the slug field in src/data/projects.ts                     -->
+
+  <url>
+    <loc>https://YOUR-PRODUCTION-DOMAIN/projects/awesome-python-projects-community</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://YOUR-PRODUCTION-DOMAIN/projects/expense-tracker</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://YOUR-PRODUCTION-DOMAIN/projects/weather-application</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://YOUR-PRODUCTION-DOMAIN/projects/bmi-calculator</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://YOUR-PRODUCTION-DOMAIN/projects/password-generator</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://YOUR-PRODUCTION-DOMAIN/projects/chat-application</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://YOUR-PRODUCTION-DOMAIN/projects/django-student-management</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

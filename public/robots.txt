@@ -1,0 +1,23 @@
+# robots.txt for Priyansh Masiyava Portfolio
+#
+# PRODUCTION SETUP REQUIRED:
+# After deployment, replace the placeholder Sitemap URL below with the real
+# production URL, e.g.:
+#   Sitemap: https://priyanshmasiyava.vercel.app/sitemap.xml
+#
+# Until the production domain is known, the Sitemap directive is commented out
+# to avoid pointing crawlers to a non-existent or incorrect URL.
+
+User-agent: *
+Allow: /
+Allow: /projects
+Allow: /projects/
+Allow: /resume
+
+# Disallow build artifacts and source directories that should never be indexed
+Disallow: /assets/
+Disallow: /.vite/
+Disallow: /node_modules/
+
+# ── Sitemap (uncomment and update URL after deployment) ──────────────────────
+# Sitemap: https://YOUR-PRODUCTION-DOMAIN/sitemap.xml

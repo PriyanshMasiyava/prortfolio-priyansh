@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary meta — overridden per-route by the useSEO hook -->
+    <title>Priyansh Masiyava | Python Developer Portfolio</title>
+    <meta name="description" content="Explore the portfolio of Priyansh Masiyava, a Computer Engineering student focused on Python development, practical software projects, and web development." />
+    <meta name="author" content="Priyansh Masiyava" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="Priyansh Masiyava, Python Developer, Computer Engineering, portfolio, software projects, Tkinter, Django, open source" />
+
+    <!--
+      Canonical URL:
+      Managed per-route by the useSEO hook once SITE_URL is configured in
+      src/lib/seo.ts. The static fallback is intentionally omitted to avoid
+      publishing a wrong canonical URL before the domain is known.
+    -->
+
+    <!-- Theme color — matches navy-950 (#0B1020) -->
+    <meta name="theme-color" content="#0B1020" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Open Graph — updated per-route by the useSEO hook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Priyansh Masiyava Portfolio" />
+    <meta property="og:title" content="Priyansh Masiyava | Python Developer Portfolio" />
+    <meta property="og:description" content="Explore the portfolio of Priyansh Masiyava, a Computer Engineering student focused on Python development, practical software projects, and web development." />
+    <meta property="og:locale" content="en_US" />
+    <!--
+      og:url and og:image are omitted from this static fallback because the
+      production domain is not yet known. They are injected per-route by the
+      useSEO hook once SITE_URL is configured in src/lib/seo.ts.
+
+      og:image recommendation:
+        - Path: public/images/og-preview.png  (then set OG_IMAGE_PATH in seo.ts)
+        - Dimensions: 1200 × 630 px
+        - Format: PNG or JPEG
+        - Content: name, title, tagline, dark-theme background
+    -->
+
+    <!-- Twitter / X Card — updated per-route by the useSEO hook -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Priyansh Masiyava | Python Developer Portfolio" />
+    <meta name="twitter:description" content="Explore the portfolio of Priyansh Masiyava, a Computer Engineering student focused on Python development, practical software projects, and web development." />
+    <!--
+      twitter:image and twitter:creator are injected by the useSEO hook
+      once SITE_URL / OG_IMAGE_PATH / TWITTER_HANDLE are configured in seo.ts.
+    -->
+
+    <!--
+      Favicons:
+      Replace /vite.svg with proper favicon assets once they are created.
+      Recommended assets:
+        public/favicon.ico          — 32×32 ICO (browser tab fallback)
+        public/favicon.svg          — Scalable SVG (modern browsers)
+        public/apple-touch-icon.png — 180×180 PNG (iOS home screen)
+      Then update the link tags below accordingly.
+    -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /> -->
+
+    <!-- Theme initialisation — runs before first paint to avoid flash of wrong theme -->
+    <script>
+      (function() {
+        var t = localStorage.getItem('pm-theme');
+        if (t === 'light') {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

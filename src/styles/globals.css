@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Theme custom properties ──────────────────────────────────────────────── */
+/*
+ * All background, surface, border, and text values are expressed as CSS custom
+ * properties so a single class swap on <html> (dark / light) applies the theme
+ * consistently to every component that uses these variables.
+ *
+ * Dark theme is the default; the .light class overrides every variable.
+ */
+
+@layer base {
+  :root,
+  html.dark {
+    /* Page / section backgrounds */
+    --bg-page:       #0B1020; /* navy-950 */
+    --bg-section:    #0B1020; /* same level */
+    --bg-section-alt:#0d1326; /* navy-900 — alternating sections */
+    --bg-card:       #111827; /* navy-800 */
+    --bg-card-hover: #1a2236; /* navy-700 */
+    --bg-input:      #1a2236; /* navy-700 */
+    --bg-nav:        rgba(11,16,32,0.95);
+    --bg-code:       #111827;
+
+    /* Borders */
+    --border:        rgba(71,85,105,0.5);  /* slate-600/50 */
+    --border-strong: rgba(71,85,105,0.8);
+
+    /* Text */
+    --text-primary:  #ffffff;
+    --text-secondary:#cbd5e1; /* slate-300 */
+    --text-muted:    #94a3b8; /* slate-400 */
+    --text-subtle:   #64748b; /* slate-500 */
+
+    /* Accent (unchanged across themes) */
+    --color-accent:  #8B5CF6;
+    --color-teal:    #2DD4BF;
+  }
+
+  html.light {
+    /* Page / section backgrounds */
+    --bg-page:       #f8fafc; /* slate-50 */
+    --bg-section:    #f8fafc;
+    --bg-section-alt:#f1f5f9; /* slate-100 */
+    --bg-card:       #ffffff;
+    --bg-card-hover: #f8fafc;
+    --bg-input:      #f8fafc;
+    --bg-nav:        rgba(248,250,252,0.97);
+    --bg-code:       #1e1e2e; /* keep code panel dark — it's decorative */
+
+    /* Borders */
+    --border:        rgba(203,213,225,0.8); /* slate-300/80 */
+    --border-strong: rgba(148,163,184,0.9); /* slate-400/90 */
+
+    /* Text */
+    --text-primary:  #0f172a; /* slate-900 */
+    --text-secondary:#1e293b; /* slate-800 */
+    --text-muted:    #475569; /* slate-600 */
+    --text-subtle:   #64748b; /* slate-500 */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Prevent horizontal overflow at every viewport width */
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    @apply font-sans antialiased;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    /* Guard against any element accidentally causing a horizontal scrollbar */
+    overflow-x: hidden;
+    min-width: 320px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ─── Component utilities ───────────────────────────────────────────────────── */
+
+@layer components {
+  /* Layout */
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-heading {
+    @apply text-3xl sm:text-4xl font-bold;
+  }
+
+  /* ── Semantic background utilities ──────────────────────────────────────── */
+  .bg-theme-page        { background-color: var(--bg-page); }
+  .bg-theme-section     { background-color: var(--bg-section); }
+  .bg-theme-section-alt { background-color: var(--bg-section-alt); }
+  .bg-theme-card        { background-color: var(--bg-card); }
+  .bg-theme-input       { background-color: var(--bg-input); }
+  .bg-theme-nav         { background-color: var(--bg-nav); }
+  .border-theme         { border-color: var(--border); }
+
+  /* ── Semantic text utilities ─────────────────────────────────────────────── */
+  .text-theme-primary   { color: var(--text-primary); }
+  .text-theme-secondary { color: var(--text-secondary); }
+  .text-theme-muted     { color: var(--text-muted); }
+  .text-theme-subtle    { color: var(--text-subtle); }
+
+  /* ── Accent text ─────────────────────────────────────────────────────────── */
+  .accent-text {
+    color: var(--color-accent);
+  }
+
+  .teal-text {
+    color: var(--color-teal);
+  }
+
+  /* ── Cards ───────────────────────────────────────────────────────────────── */
+  .card-base {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    @apply rounded-xl p-6 transition-all duration-300;
+  }
+  .card-base:hover {
+    border-color: rgba(139,92,246,0.4);
+    box-shadow: 0 10px 25px -5px rgba(139,92,246,0.05);
+  }
+
+  /* ── Buttons ─────────────────────────────────────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-violet-500 hover:bg-violet-600
+           text-white font-semibold transition-all duration-200 hover:scale-[1.02] focus:outline-none
+           focus:ring-2 focus:ring-violet-500 focus:ring-offset-2;
+    focus-ring-offset-color: var(--bg-page);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--border-strong);
+    color: var(--text-secondary);
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold
+           transition-all duration-200 hover:scale-[1.02] focus:outline-none
+           focus:ring-2 focus:ring-violet-500 focus:ring-offset-2;
+  }
+  .btn-secondary:hover {
+    border-color: rgba(139,92,246,0.6);
+    color: #a78bfa;
+  }
+
+  /* ── Tech chips ──────────────────────────────────────────────────────────── */
+  .tech-chip {
+    background-color: var(--bg-card-hover);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
+           transition-colors duration-200;
+  }
+  .tech-chip:hover {
+    border-color: rgba(139,92,246,0.5);
+    color: #a78bfa;
+  }
+
+  /* ── Input fields ────────────────────────────────────────────────────────── */
+  .input-field {
+    background-color: var(--bg-input);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    @apply w-full px-4 py-3 rounded-lg
+           placeholder:text-[color:var(--text-subtle)]
+           focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent
+           transition-all duration-200;
+  }
+}
+
+/* ─── Custom scrollbar ──────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-page); }
+::-webkit-scrollbar-thumb { background: #8B5CF6; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
+
+/* ─── Responsive utilities ──────────────────────────────────────────────────── */
+
+/* Ensure images never overflow their container */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Filter pill rows: allow horizontal scroll on very small screens instead of
+   wrapping into an unusable pile, while still wrapping on wider screens. */
+@media (max-width: 479px) {
+  .filter-pill-row {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filter-pill-row::-webkit-scrollbar {
+    display: none;
+  }
+}
